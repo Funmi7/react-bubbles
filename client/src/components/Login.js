@@ -5,8 +5,8 @@ import axios from 'axios';
   // when you have handled the token, navigate to the BubblePage route
   const Login = props => {
   const [formData, setFormData] = useState({
-    username: 'Lambda School',
-    password: 'i<3Lambd4',
+    username: '',
+    password: '',
   });
 
   const handleChange = e => {
