@@ -22,9 +22,11 @@ const ColorList = ({ colors, updateColors }) => {
     // think about where will you get the id from...
     // where is is saved right now?
     withAuth().put(`http://localhost:5000/api/colors/${colorToEdit.id}`, colorToEdit)
-    .then(() => {
+    .then((res) => {
+      const newColors = colors.filter(color => color.id !== res.data.id)
+      updateColors([...newColors, res.data])
       setEditing(false)
-      
+
     })
     .catch((err) => {
       console.log('Error:', err)
